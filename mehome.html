@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Eaton</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-color: #1a202c;
+            --navbar-bg-color: transparent;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: none;
+        }
+        a, button {
+    cursor: none !important;
+}
+input, textarea {
+    pointer-events: none;
+}
+
+        .navbar {
+            background-color: var(--navbar-bg-color);
+            border-bottom: none;
+            box-shadow: none;
+        }
+        #cursor {
+            width: 17px;
+            height: 17px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, transform 0.05s ease-out;
+            z-index: 9999;
+        }
+        .hovered {
+            width: 35px !important;
+            height: 35px !important;
+            background-color: rgba(255, 255, 255, 0.6) !important;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div id="cursor"></div>
+    <div>
+        <div class="flex justify-center mt-10">
+            <h1 class="text-4xl font-bold">Home</h1>
+        </div>
+
+        <nav class="navbar py-3 w-full">
+            <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row sm:items-center sm:justify-center">
+                <button id="menu-toggle" class="sm:hidden text-white focus:outline-none">☰</button>
+                <ul id="menu" class="hidden sm:flex flex-col sm:flex-row sm:items-center sm:space-x-6 text-center mt-4 sm:mt-0">
+                    <li><a href="mehome.html" class="nav-link block px-6 py-3 bg-blue-700 rounded-lg text-white font-bold shadow-md hover:scale-105 transition-transform">Home</a></li>
+                    <li><a href="meuebermich.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">About me</a></li>
+                    <li><a href="meprojekte.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">Projects</a></li>
+                    <li><a href="mekontakt.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="text-center mt-10 px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold">Michael Eaton</h1>
+            <h2 class="text-xl sm:text-2xl mt-2 text-gray-400 fade-in">I'm a Creative Visionary from Switzerland</h2>
+        </div>
+
+        <div class="flex justify-center mt-10 px-4">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg lg:max-w-xl border border-gray-600 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-blue-500">
+                <p class="text-xl font-bold">Michael Eaton</p>
+                <ul class="mt-2 text-gray-400 space-y-2">
+                    <li>Apprentice - Technical Software Engineering</li>
+                    <li>Located in Zurich, Switzerland</li>
+                    <li>Age: 16</li>
+                </ul>
+                <a href="meuebermich.html">
+                    <button class="mt-4 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 w-full transition-transform transform hover:scale-105">
+                        More info
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-center py-4 text-gray-400 w-full">
+        📧 Email: <a href="mailto:michael.eaton@siemens.com" class="text-blue-400 hover:underline">michael.eaton212@gmail.com</a>
+    </footer>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('hidden');
+        });
+
+        const cursor = document.getElementById("cursor");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        });
+
+        document.querySelectorAll(".nav-link, .bg-gray-800").forEach((el) => {
+            el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
+            el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
+        });
+    </script>
+</body>
+</html>

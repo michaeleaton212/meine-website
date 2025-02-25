@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Eaton</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #1a202c;
+            --navbar-bg-color: transparent;
+        }
+        a, button {
+    cursor: none !important;
+}
+input, textarea {
+    pointer-events: none;
+}
+
+        body {
+            background-color: var(--bg-color);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: none;
+        }
+        .navbar {
+            background-color: var(--navbar-bg-color);
+            border-bottom: none;
+            box-shadow: none;
+        }
+        #cursor {
+            width: 17px;
+            height: 17px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, transform 0.05s ease-out;
+            z-index: 9999;
+        }
+        .hovered {
+            width: 35px !important;
+            height: 35px !important;
+            background-color: rgba(255, 255, 255, 0.6) !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="cursor"></div>
+    <div>
+        <div class="text-center mt-10">
+            <h1 class="text-4xl font-bold">Contact</h1>
+        </div>
+        
+        <nav class="navbar py-4 w-full">
+            <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row sm:items-center sm:justify-center">
+                <button id="menu-toggle" class="sm:hidden text-white focus:outline-none">☰</button>
+                <ul id="menu" class="hidden sm:flex flex-col sm:flex-row sm:items-center sm:space-x-6 text-center mt-4 sm:mt-0">
+                    <li><a href="mehome.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">Home</a></li>
+                    <li><a href="meuebermich.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">About me</a></li>
+                    <li><a href="meprojekte.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">Projects</a></li>
+                    <li><a href="mekontakt.html" class="nav-link block px-6 py-3 bg-blue-700 rounded-lg text-white font-bold shadow-md">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="flex justify-center mt-10">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg lg:max-w-xl border border-gray-600 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-blue-500">
+                <p class="text-xl font-bold">Thank you for your visit!</p>
+                <p class="mt-2 text-gray-400">If you have any questions, don't hesitate to contact me.</p>                
+            </div>
+        </div>
+
+        <form id="contact-form" class="max-w-lg mx-auto mt-10 bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-600 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-blue-500">
+            <input type="text" id="name" placeholder="Your Name" required class="w-full p-2 mb-4 bg-gray-700 text-white rounded-lg border border-gray-600">
+            <input type="email" id="email" placeholder="Your Email" required class="w-full p-2 mb-4 bg-gray-700 text-white rounded-lg border border-gray-600">
+            <textarea id="message" placeholder="Your Message" required class="w-full p-2 mb-4 bg-gray-700 text-white rounded-lg border border-gray-600 h-32"></textarea>
+            <button type="submit" class="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">Send</button>
+            <p id="status-message" class="text-center mt-4"></p>
+        </form>
+    </div>
+
+    <footer class="bg-gray-800 text-center py-4 text-gray-400 w-full">
+        📧 Email: <a href="mailto:michael.eaton@siemens.com" class="text-blue-400 hover:underline">michael.eaton212@gmail.com</a>
+    </footer>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('hidden');
+        });
+
+        const cursor = document.getElementById("cursor");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        });
+
+        document.querySelectorAll(".nav-link, .bg-gray-800").forEach((el) => {
+            el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
+            el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
+        });
+
+        // EmailJS Integration
+        (function() {
+            emailjs.init("PqPY56nEQgsXhzvaJ"); // Ersetze mit deinem Public Key
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const statusMessage = document.getElementById("status-message");
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !message) {
+                statusMessage.textContent = "Please fill out all fields.";
+                statusMessage.style.color = "red";
+                return;
+            }
+
+            emailjs.send("service_6rczoex", "template_bnv5z4o", {
+                from_name: name,
+                from_email: email,
+                message: message
+            })
+            .then(function(response) {
+                statusMessage.textContent = "Message sent successfully!";
+                statusMessage.style.color = "green";
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                statusMessage.textContent = "Failed to send message. Try again later.";
+                statusMessage.style.color = "red";
+                console.error("EmailJS Error:", error);
+            });
+        });
+    </script>
+</body>
+</html>
