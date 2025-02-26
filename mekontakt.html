@@ -3,51 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Eaton</title>
+    <title>Contact - Michael Eaton</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         :root {
-            --bg-color: #1a202c;
-            --navbar-bg-color: transparent;
+            --bg-color: #f7fafc; /* Helles Grau für den Hintergrund */
+            --navbar-bg-color: transparent; /* Transparente Navigationsleiste */
+            --footer-bg-color: transparent; /* Transparenter Footer */
         }
-        a, button {
-    cursor: none !important;
-}
-input, textarea {
-    caret-color: transparent; /* Macht den Cursor unsichtbar */
-}
-
 
         body {
             background-color: var(--bg-color);
-            color: white;
+            color: #2d3748; /* Dunkles Grau für den Text */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             cursor: none;
         }
+        a, button {
+            cursor: none !important;
+        }
+        input, textarea {
+            caret-color: transparent;
+        }
         .navbar {
             background-color: var(--navbar-bg-color);
-            border-bottom: none;
-            box-shadow: none;
+        }
+        .footer {
+            background-color: var(--footer-bg-color);
         }
         #cursor {
             width: 17px;
             height: 17px;
-            background-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(45, 55, 72, 0.6);
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
             transform: translate(-50%, -50%);
-            transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, transform 0.05s ease-out;
+            transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
             z-index: 9999;
         }
         .hovered {
             width: 35px !important;
             height: 35px !important;
-            background-color: rgba(255, 255, 255, 0.6) !important;
+            background-color: rgba(45, 55, 72, 0.6) !important;
         }
     </style>
 </head>
@@ -58,36 +59,36 @@ input, textarea {
             <h1 class="text-4xl font-bold">Contact</h1>
         </div>
         
-        <nav class="navbar py-4 w-full">
+        <nav class="navbar py-4 w-full bg-transparent">
             <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row sm:items-center sm:justify-center">
-                <button id="menu-toggle" class="sm:hidden text-white focus:outline-none">☰</button>
+                <button id="menu-toggle" class="sm:hidden text-gray-800 focus:outline-none">☰</button>
                 <ul id="menu" class="hidden sm:flex flex-col sm:flex-row sm:items-center sm:space-x-6 text-center mt-4 sm:mt-0">
-                    <li><a href="index.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">Home</a></li>
-                    <li><a href="meuebermich.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">About me</a></li>
-                    <li><a href="meprojekte.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">Projects</a></li>
-                    <li><a href="mekontakt.html" class="nav-link block px-6 py-3 bg-blue-700 rounded-lg text-white font-bold shadow-md">Contact</a></li>
+                    <li><a href="index.html" class="nav-link block px-6 py-3 bg-gray-200 rounded-lg text-gray-800 font-bold shadow-md hover:scale-105 transition-transform">Home</a></li>
+                    <li><a href="meuebermich.html" class="nav-link block px-6 py-3 bg-gray-300 rounded-lg text-gray-800 hover:bg-gray-400 transition-all">About Me</a></li>
+                    <li><a href="meprojekte.html" class="nav-link block px-6 py-3 bg-gray-300 rounded-lg text-gray-800 hover:bg-gray-400 transition-all">Projects</a></li>
+                    <li><a href="mekontakt.html" class="nav-link block px-6 py-3 bg-blue-500 rounded-lg text-white font-bold shadow-md hover:scale-105 transition-transform">Contact</a></li>
                 </ul>
             </div>
         </nav>
 
         <div class="flex justify-center mt-10">
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg lg:max-w-xl border border-gray-600 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-blue-500">
-                <p class="text-xl font-bold">Thank you for your visit!</p>
-                <p class="mt-2 text-gray-400">If you have any questions, don't hesitate to contact me.</p>                
+            <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg lg:max-w-xl border border-gray-300 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-gray-500">
+                <p class="text-xl font-bold text-gray-800">Thank you for your visit!</p>
+                <p class="mt-2 text-gray-600">If you have any questions, don't hesitate to contact me.</p>                
             </div>
         </div>
 
-        <form id="contact-form" class="max-w-lg mx-auto mt-10 bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-600 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-blue-500">
-            <input type="text" id="name" placeholder="Your Name" required class="w-full p-2 mb-4 bg-gray-700 text-white rounded-lg border border-gray-600">
-            <input type="email" id="email" placeholder="Your Email" required class="w-full p-2 mb-4 bg-gray-700 text-white rounded-lg border border-gray-600">
-            <textarea id="message" placeholder="Your Message" required class="w-full p-2 mb-4 bg-gray-700 text-white rounded-lg border border-gray-600 h-32"></textarea>
+        <form id="contact-form" class="max-w-lg mx-auto mt-10 bg-white p-6 rounded-lg shadow-lg border border-gray-300 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-gray-500">
+            <input type="text" id="name" placeholder="Your Name" required class="w-full p-2 mb-4 bg-gray-200 text-gray-800 rounded-lg border border-gray-300">
+            <input type="email" id="email" placeholder="Your Email" required class="w-full p-2 mb-4 bg-gray-200 text-gray-800 rounded-lg border border-gray-300">
+            <textarea id="message" placeholder="Your Message" required class="w-full p-2 mb-4 bg-gray-200 text-gray-800 rounded-lg border border-gray-300 h-32"></textarea>
             <button type="submit" class="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">Send</button>
             <p id="status-message" class="text-center mt-4"></p>
         </form>
     </div>
 
-    <footer class="bg-gray-800 text-center py-4 text-gray-400 w-full">
-        📧 Email: <a href="mailto:michael.eaton@siemens.com" class="text-blue-400 hover:underline">michael.eaton212@gmail.com</a>
+    <footer class="footer text-center py-4 text-gray-600 w-full">
+        📧 Email: <a href="mailto:michael.eaton@siemens.com" class="text-blue-500 hover:underline">michael.eaton212@gmail.com</a>
     </footer>
 
     <script>
@@ -101,7 +102,7 @@ input, textarea {
             cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         });
 
-        document.querySelectorAll(".nav-link, .bg-gray-800").forEach((el) => {
+        document.querySelectorAll(".nav-link, .bg-white").forEach((el) => {
             el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
             el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
         });
