@@ -3,41 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Eaton</title>
+    <title>Projects - Michael Eaton</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            --bg-color: #1a202c;
-            --navbar-bg-color: transparent;
+            --bg-color: #f7fafc; /* Helles Grau für den Hintergrund */
+            --navbar-bg-color: transparent; /* Transparente Navigationsleiste */
+            --footer-bg-color: transparent; /* Transparenter Footer */
         }
-
-        a, button {
-    cursor: none !important;
-}
-input, textarea {
-    caret-color: transparent; /* Macht den Cursor unsichtbar */
-}
-
-
 
         body {
             background-color: var(--bg-color);
-            color: white;
+            color: #2d3748; /* Dunkles Grau für den Text */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             cursor: none;
         }
+        a, button {
+            cursor: none !important;
+        }
+        input, textarea {
+            caret-color: transparent;
+        }
         .navbar {
             background-color: var(--navbar-bg-color);
-            border-bottom: none;
-            box-shadow: none;
+        }
+        .footer {
+            background-color: var(--footer-bg-color);
         }
         #cursor {
             width: 17px;
             height: 17px;
-            background-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(45, 55, 72, 0.6);
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
@@ -48,7 +47,7 @@ input, textarea {
         .hovered {
             width: 35px !important;
             height: 35px !important;
-            background-color: rgba(255, 255, 255, 0.6) !important;
+            background-color: rgba(45, 55, 72, 0.6) !important;
         }
     </style>
 </head>
@@ -59,38 +58,36 @@ input, textarea {
             <h1 class="text-4xl font-bold">Projects</h1>
         </div>
         
-        <nav class="navbar py-4 w-full">
+        <nav class="navbar py-4 w-full bg-transparent">
             <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row sm:items-center sm:justify-center">
-                <button id="menu-toggle" class="sm:hidden text-white focus:outline-none">
-                    ☰
-                </button>
+                <button id="menu-toggle" class="sm:hidden text-gray-800 focus:outline-none">☰</button>
                 <ul id="menu" class="hidden sm:flex flex-col sm:flex-row sm:items-center sm:space-x-6 text-center mt-4 sm:mt-0">
-                    <li><a href="index.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">Home</a></li>
-                    <li><a href="meuebermich.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">About Me</a></li>
-                    <li><a href="meprojekte.html" class="nav-link block px-6 py-3 bg-blue-700 rounded-lg text-white font-bold shadow-md">Projects</a></li>
-                    <li><a href="mekontakt.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">Contact</a></li>
+                    <li><a href="index.html" class="nav-link block px-6 py-3 bg-gray-200 rounded-lg text-gray-800 font-bold shadow-md hover:scale-105 transition-transform">Home</a></li>
+                    <li><a href="meuebermich.html" class="nav-link block px-6 py-3 bg-gray-300 rounded-lg text-gray-800 hover:bg-gray-400 transition-all">About Me</a></li>
+                    <li><a href="meprojekte.html" class="nav-link block px-6 py-3 bg-blue-500 text-white font-bold shadow-md hover:scale-105 transition-transform">Projects</a></li>
+                    <li><a href="mekontakt.html" class="nav-link block px-6 py-3 bg-gray-300 rounded-lg text-gray-800 hover:bg-gray-400 transition-all">Contact</a></li>
                 </ul>
             </div>
         </nav>
 
         <div class="flex flex-col items-center sm:flex-row sm:justify-center sm:space-x-6 mt-10 space-y-6 sm:space-y-0">
-            <div class="project bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center w-60 sm:w-80 min-h-[220px] border border-gray-600 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-blue-500">
-                <p class="text-xl font-bold">Creating My Own Website</p>
-                <p class="text-gray-400 mt-2 text-center">I built my personal website using HTML, Tailwind CSS, and JavaScript to create a user-friendly and interactive experience.</p>
+            <div class="project bg-white p-6 rounded-lg shadow-lg flex flex-col items-center w-60 sm:w-80 min-h-[220px] border border-gray-300 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-gray-500">
+                <p class="text-xl font-bold text-gray-800">Creating My Own Website</p>
+                <p class="text-gray-600 mt-2 text-center">I built my personal website using HTML, Tailwind CSS, and JavaScript to create a user-friendly and interactive experience.</p>
             </div>
-            <div class="project bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center w-60 sm:w-80 min-h-[220px] border border-gray-600 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-blue-500">
-                <p class="text-xl font-bold text-center">Contact Form with JavaScript & EmailJS</p>
-                <p class="text-gray-400 mt-2 text-center">I developed a contact form using JavaScript and EmailJS to send messages directly from my website without a backend server.</p>
+            <div class="project bg-white p-6 rounded-lg shadow-lg flex flex-col items-center w-60 sm:w-80 min-h-[220px] border border-gray-300 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-gray-500">
+                <p class="text-xl font-bold text-gray-800 text-center">Contact Form with JavaScript & EmailJS</p>
+                <p class="text-gray-600 mt-2 text-center">I developed a contact form using JavaScript and EmailJS to send messages directly from my website without a backend server.</p>
             </div>
-            <div class="project bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center w-60 sm:w-80 min-h-[220px] border border-gray-600 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-blue-500">
-                <p class="text-xl font-bold">Project 3</p>
-                <p class="text-gray-400 mt-2 text-center">Short description of the project.</p>
+            <div class="project bg-white p-6 rounded-lg shadow-lg flex flex-col items-center w-60 sm:w-80 min-h-[220px] border border-gray-300 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-gray-500">
+                <p class="text-xl font-bold text-gray-800">Project 3</p>
+                <p class="text-gray-600 mt-2 text-center">Short description of the project.</p>
             </div>
         </div>
     </div>
 
-    <footer class="bg-gray-800 text-center py-4 text-gray-400 w-full">
-        📧 Email: <a href="mailto:michael.eaton@siemens.com" class="text-blue-400 hover:underline">michael.eaton212@gmail.com</a>
+    <footer class="footer text-center py-4 text-gray-600 w-full">
+        📧 Email: <a href="mailto:michael.eaton@siemens.com" class="text-blue-500 hover:underline">michael.eaton212@gmail.com</a>
     </footer>
 
     <script>
