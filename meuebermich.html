@@ -3,40 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Eaton</title>
+    <title>About Me - Websolutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            --bg-color: #1a202c;
-            --navbar-bg-color: transparent;
+            --bg-color: #f7fafc; /* Helles Grau für den Hintergrund */
+            --navbar-bg-color: transparent; /* Transparente Navigationsleiste */
+            --footer-bg-color: transparent; /* Transparenter Footer */
         }
-        a, button {
-    cursor: none !important;
-}
-input, textarea {
-    caret-color: transparent; /* Macht den Cursor unsichtbar */
-}
-
-
         body {
-            cursor: none;
             background-color: var(--bg-color);
-            color: white;
+            color: #2d3748; /* Dunkles Grau für den Text */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             cursor: none;
         }
+        a, button {
+            cursor: none !important;
+        }
+        input, textarea {
+            caret-color: transparent; /* Macht den Cursor unsichtbar */
+        }
         .navbar {
             background-color: var(--navbar-bg-color);
-            border-bottom: none;
-            box-shadow: none;
+        }
+        .footer {
+            background-color: var(--footer-bg-color);
         }
         #cursor {
             width: 17px;
             height: 17px;
-            background-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(45, 55, 72, 0.6); /* Dunkles Grau für den benutzerdefinierten Cursor */
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
@@ -47,7 +46,7 @@ input, textarea {
         .hovered {
             width: 35px !important;
             height: 35px !important;
-            background-color: rgba(255, 255, 255, 0.6) !important;
+            background-color: rgba(45, 55, 72, 0.6) !important; /* Dunkles Grau beim Hover */
         }
     </style>
 </head>
@@ -59,47 +58,47 @@ input, textarea {
             <h1 class="text-4xl font-bold">About Me</h1>
         </div>
         
-        <nav class="navbar py-4 w-full">
+        <nav class="navbar py-4 w-full bg-transparent">
             <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row sm:items-center sm:justify-center">
-                <button id="menu-toggle" class="sm:hidden text-white focus:outline-none">☰</button>
+                <button id="menu-toggle" class="sm:hidden text-gray-800 focus:outline-none">☰</button>
                 <ul id="menu" class="hidden sm:flex flex-col sm:flex-row sm:items-center sm:space-x-6 text-center mt-4 sm:mt-0">
-                    <li><a href="index.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">Home</a></li>
-                    <li><a href="meuebermich.html" class="nav-link block px-6 py-3 bg-blue-700 rounded-lg text-white font-bold shadow-md hover:scale-105 transition-transform">About Me</a></li>
-                    <li><a href="meprojekte.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">Projects</a></li>
-                    <li><a href="mekontakt.html" class="nav-link block px-6 py-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-all">Contact</a></li>
+                    <li><a href="index.html" class="nav-link block px-6 py-3 bg-gray-200 rounded-lg text-gray-800 font-bold shadow-md hover:scale-105 transition-transform">Home</a></li>
+                    <li><a href="meuebermich.html" class="nav-link block px-6 py-3 bg-gray-300 rounded-lg text-gray-800 hover:bg-gray-400 transition-all">About Me</a></li>
+                    <li><a href="meprojekte.html" class="nav-link block px-6 py-3 bg-gray-300 rounded-lg text-gray-800 hover:bg-gray-400 transition-all">Projects</a></li>
+                    <li><a href="mekontakt.html" class="nav-link block px-6 py-3 bg-gray-300 rounded-lg text-gray-800 hover:bg-gray-400 transition-all">Contact</a></li>
                 </ul>
             </div>
         </nav>
         
         <div class="flex justify-center mt-10">
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg lg:max-w-xl border border-gray-600 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-blue-500">
-                <p class="text-xl font-bold">Michael Eaton</p>
-                <p class="mt-2 text-gray-400">I am a student at the Technische Berufsschule Zurich (TBZ) and also attend the Vocational Maturity School (BMS) Zurich. For the past six months, I have been doing my apprenticeship as an application developer at Siemens in Altstetten.</p>
-                <p class="mt-2 text-gray-400">Even before my apprenticeship, I was very interested in computer science, technology, and programming.</p>
-                <p class="mt-2 text-gray-400">Besides my enthusiasm for technology, I enjoy going to the gym, skiing in winter, and attending ice hockey games with friends. I also love spending time outdoors with my friends.</p>
+            <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg lg:max-w-xl border border-gray-300 transition-all transform hover:scale-105 hover:shadow-2xl hover:border-gray-500">
+                <p class="text-xl font-bold text-gray-800">Michael Eaton</p>
+                <p class="mt-2 text-gray-600">I am a student at the Technische Berufsschule Zurich (TBZ) and also attend the Vocational Maturity School (BMS) Zurich. For the past six months, I have been doing my apprenticeship as an application developer at Siemens in Altstetten.</p>
+                <p class="mt-2 text-gray-600">Even before my apprenticeship, I was very interested in computer science, technology, and programming.</p>
+                <p class="mt-2 text-gray-600">Besides my enthusiasm for technology, I enjoy going to the gym, skiing in winter, and attending ice hockey games with friends. I also love spending time outdoors with my friends.</p>
             </div>
         </div>
 
         <!-- Grid mit 3 Icons (zentriert auf Mobile, nebeneinander auf Desktop) -->
         <div class="flex flex-col items-center sm:grid sm:grid-cols-2 lg:flex lg:flex-row lg:justify-center gap-6 mt-10 px-6 sm:max-w-4xl mx-auto">
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center w-56 sm:w-64 lg:w-72 min-h-[250px] transition-all transform hover:scale-110 hover:shadow-xl hover:border-blue-500 border border-gray-600">
+            <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center w-56 sm:w-64 lg:w-72 min-h-[250px] transition-all transform hover:scale-110 hover:shadow-xl hover:border-gray-500 border border-gray-300">
                 <img src="https://www.svgrepo.com/show/441585/brain.svg" class="w-24 h-24 mb-4" alt="Brain Icon">
-                <p class="text-gray-400 text-lg">Logical Thinking</p>
+                <p class="text-gray-800 text-lg">Logical Thinking</p>
             </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center w-56 sm:w-64 lg:w-72 min-h-[250px] transition-all transform hover:scale-110 hover:shadow-xl hover:border-blue-500 border border-gray-600">
+            <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center w-56 sm:w-64 lg:w-72 min-h-[250px] transition-all transform hover:scale-110 hover:shadow-xl hover:border-gray-500 border border-gray-300">
                 <img src="https://www.svgrepo.com/show/1699/web-development.svg" class="w-24 h-24 mb-4" alt="Web Dev Icon">
-                <p class="text-gray-400 text-lg">Web Development</p>
+                <p class="text-gray-800 text-lg">Web Development</p>
             </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center w-56 sm:w-64 lg:w-72 min-h-[250px] transition-all transform hover:scale-110 hover:shadow-xl hover:border-blue-500 border border-gray-600 sm:col-span-2 lg:ml-0">
+            <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center w-56 sm:w-64 lg:w-72 min-h-[250px] transition-all transform hover:scale-110 hover:shadow-xl hover:border-gray-500 border border-gray-300 sm:col-span-2 lg:ml-0">
                 <img src="https://www.svgrepo.com/show/26227/management.svg" class="w-24 h-24 mb-4" alt="Management Icon">
-                <p class="text-gray-400 text-lg">Project Management</p>
+                <p class="text-gray-800 text-lg">Project Management</p>
             </div>
         </div>
     </div>
 
     <!-- Footer bleibt immer unten -->
-    <footer class="bg-gray-800 text-center py-4 text-gray-400 w-full mt-auto">
-        📧 Email: <a href="mailto:michael.eaton@siemens.com" class="text-blue-400 hover:underline">michael.eaton212@gmail.com</a>
+    <footer class="footer text-center py-4 text-gray-600 w-full mt-auto">
+        📧 Email: <a href="mailto:michael.eaton@siemens.com" class="text-blue-500 hover:underline">michael.eaton212@gmail.com</a>
     </footer>
 
     <script>
@@ -113,12 +112,10 @@ input, textarea {
             cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         });
 
-        document.querySelectorAll(".nav-link, .bg-gray-800").forEach((el) => {
+        document.querySelectorAll(".nav-link, .bg-white").forEach((el) => {
             el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
             el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
         });
     </script>
 </body>
-</html>
-
 </html>
